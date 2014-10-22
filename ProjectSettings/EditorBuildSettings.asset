@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Main.unity
   - enabled: 0
     path: Assets/Main.unity
+  - enabled: 0
+    path: Assets/Main.unity
