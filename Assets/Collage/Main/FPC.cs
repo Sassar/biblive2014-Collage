@@ -2,19 +2,22 @@
 using System.Collections;
 
 public class FPC : MonoBehaviour {
-	public float walkSpeed = 7.0f; //歩く速度
+	public float walkSpeed = 1.0f; //歩く速度
 	public float gravity = 10.0f;//重力加速度
 	private Vector3 velocity;//現在の速度
 	
 	private float RotSpeed = 90.0f; //回転速度係数
 	private float LimitRotX = 50f; //回転可能限界
+
+	public float screenW;
+	public float screenH;
 	
 	private CharacterController controller;
 	
 	void Start () {
-		
+		screenW = Screen.width;
+		screenH = Screen.height;
 		controller = GetComponent<CharacterController>();
-		
 	}
 	
 	void OnGUI() {
@@ -34,16 +37,16 @@ public class FPC : MonoBehaviour {
 			velocity -= transform.forward;
 		}
 		
-		if(GUI.RepeatButton(new Rect(140,275,40,20), "前")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+45,screenH-70,40,20), "前")) {
 			velocity += transform.forward;
 		}
-		if(GUI.RepeatButton(new Rect(140,325,40,20), "後")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+45,screenH-20,40,20), "後")) {
 			velocity -= transform.forward;
 		}
-		if(GUI.RepeatButton(new Rect(165,300,40,20), "右")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+70,screenH-45,40,20), "右")) {
 			velocity += transform.right;
 		}
-		if(GUI.RepeatButton(new Rect(115, 300,40,20), "左")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+20,screenH-45,40,20), "左")) {
 			velocity -= transform.right;
 		}
 		
