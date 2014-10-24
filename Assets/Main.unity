@@ -12185,6 +12185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   gravity: 10
+  screenW: 0
+  screenH: 0
 --- !u!143 &1502950196
 CharacterController:
   m_ObjectHideFlags: 0
