@@ -49,8 +49,18 @@ public class FPC : MonoBehaviour {
 		if(GUI.RepeatButton(new Rect(screenW-screenW+20,screenH-45,40,20), "左")) {
 			velocity -= transform.right;
 		}
-		
-		
+
+		if(camera.depth == -1){
+		    if(GUI.Button(new Rect(screenW-40,screenH-20,40,20),"U")){
+			    camera.depth = 1;
+		    }
+		}
+		if(camera.depth == 1){
+		    if(GUI.Button(new Rect(screenW-40,screenH-20,40,20),"D")){
+			    	camera.depth = -1;
+		    }
+		}
+
 		velocity *= walkSpeed;
 		
 		velocity.y = -gravity;//重力設定
