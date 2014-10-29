@@ -37,26 +37,26 @@ public class FPC : MonoBehaviour {
 			velocity -= transform.forward;
 		}
 		
-		if(GUI.RepeatButton(new Rect(screenW-screenW+45,screenH-70,40,20), "前")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+45,screenH-70,40,20), "↑")) {
 			velocity += transform.forward;
 		}
-		if(GUI.RepeatButton(new Rect(screenW-screenW+45,screenH-20,40,20), "後")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+45,screenH-20,40,20), "↓")) {
 			velocity -= transform.forward;
 		}
-		if(GUI.RepeatButton(new Rect(screenW-screenW+70,screenH-45,40,20), "右")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+70,screenH-45,40,20), "→")) {
 			velocity += transform.right;
 		}
-		if(GUI.RepeatButton(new Rect(screenW-screenW+20,screenH-45,40,20), "左")) {
+		if(GUI.RepeatButton(new Rect(screenW-screenW+20,screenH-45,40,20), "←")) {
 			velocity -= transform.right;
 		}
 
 		if(camera.depth == -1){
-		    if(GUI.Button(new Rect(screenW-40,screenH-20,40,20),"U")){
+		    if(GUI.Button(new Rect(screenW-40,screenH-190,40,20),"▼")){
 			    camera.depth = 1;
 		    }
 		}
 		if(camera.depth == 1){
-		    if(GUI.Button(new Rect(screenW-40,screenH-20,40,20),"D")){
+		    if(GUI.Button(new Rect(screenW-40,screenH-20,40,20),"▲")){
 			    	camera.depth = -1;
 		    }
 		}
