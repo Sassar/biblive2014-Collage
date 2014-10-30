@@ -4,16 +4,37 @@ using System.Collections;
 public class MainManager : MonoBehaviour {
 
 	public float screenW;
-	public float screenH;
+
+	private string One_Of_SN;	// SN:Shelf Name
+	private string[] Shelf_Obj_Names = {"B1_HM", "B2_HM"};	// need to fix!!!!!!!!!!!!!
+	private int num_Of_SO;	// SO:Shelfs Object
+	private float[] Movie_lengths = new float[130];
+	public	float Length_Of_LM = 0.0f;	//LM:Longest movie
+	private MovieTexture mov_Texture;
+	private int i =0;
 
 	// Use this for initialization
 	void Start () {
 		screenW = Screen.width;
-		screenH = Screen.height;
+
+		num_Of_SO = Shelf_Obj_Names.Length;
+		//get movies' length 
+		for(i=0; i < num_Of_SO; i++){
+			mov_Texture = GameObject.Find (Shelf_Obj_Names[i]).renderer.material.mainTexture as MovieTexture;
+			Movie_lengths[i] = mov_Texture.duration;
+		}
+		
+		//get most longest length in all movies
+		for(i=0; i<num_Of_SO; i++){
+			if(Length_Of_LM < Movie_lengths[i]){
+				Length_Of_LM = Movie_lengths[i];
+			}
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
+		//back to "Title" scene
 		if (Application.platform == RuntimePlatform.Android && Input.GetKey(KeyCode.Escape)) {
 			Application.LoadLevel(0);
 		}
@@ -23,11 +44,5 @@ public class MainManager : MonoBehaviour {
 		if (GUI.Button (new Rect (screenW-55, 10, 50, 25), "Title")) {
 			Application.LoadLevel(0);
 		}
-		//QuitButton
-		/*
-		if (GUI.Button (new Rect (screenW-screenW/10-5, 10, 50, 25), "Quit")) {
-			Application.Quit ();
-		}
-		*/
 	}
 }
