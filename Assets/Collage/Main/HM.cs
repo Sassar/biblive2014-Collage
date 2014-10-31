@@ -31,7 +31,7 @@ public class HM: MonoBehaviour {
 		max_ML = Main_Manager.Length_Of_LM;
 
 		//change color of this shelf in heat map
-		G = mov_Length % max_ML;
+		G = mov_Length / max_ML;
 		B = G;
 		this.renderer.material.color = new Color (1.0f, G, B, alpha);
 	}
